@@ -1,4 +1,4 @@
-.logo {
+.cmp-logo {
   box-sizing: content-box;
   display: inline;
   height: 6em;
@@ -6,10 +6,10 @@
   will-change: filter;
 }
 
-.logo:hover {
+.cmp-logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-.logo.vanilla:hover {
+.cmp-logo--vanilla:hover {
   filter: drop-shadow(0 0 2em #3178c6aa);
 }
