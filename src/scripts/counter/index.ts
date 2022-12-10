@@ -1,4 +1,8 @@
-export const updateElement = (element: HTMLButtonElement, count: number): void => {
+export const updateElement = (element: HTMLButtonElement | null, count: number): void => {
+  if (element == null) {
+    return;
+  }
+  
   element.dataset.count = count.toString();
   element.innerHTML = `count is ${count}`;
 };
