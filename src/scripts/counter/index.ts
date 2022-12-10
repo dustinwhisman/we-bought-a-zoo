@@ -2,13 +2,13 @@ export const updateElement = (element: HTMLButtonElement | null, count: number):
   if (element == null) {
     return;
   }
-  
+
   element.dataset.count = count.toString();
   element.innerHTML = `count is ${count}`;
 };
 
-export const getCurrentCount = (element: HTMLButtonElement): number => {
-  const count = element.dataset.count;
+export const getCurrentCount = (element: HTMLButtonElement | null): number => {
+  const count = element?.dataset.count ?? '0';
   const numericCount = Number.parseInt(count ?? '0');
 
   return numericCount;
