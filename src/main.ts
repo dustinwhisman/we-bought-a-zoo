@@ -1,4 +1,4 @@
-import './style.css'
+import './styles/index.css'
 import typescriptLogo from './typescript.svg'
 import { setupCounter } from './counter'
 
