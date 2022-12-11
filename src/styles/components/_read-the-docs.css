@@ -1,3 +1,9 @@
 .cmp-read-the-docs {
-  color: #999;
+  color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cmp-read-the-docs {
+    color: #999;
+  }
 }
