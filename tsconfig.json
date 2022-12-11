@@ -14,7 +14,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
-    "types": ["vite/client"]
+    "types": ["vite/client", "cypress", "cypress-axe"]
   },
-  "include": ["src"]
+  "include": ["src", "cypress", "cypress.config.ts", "vite.config.ts"]
 }
