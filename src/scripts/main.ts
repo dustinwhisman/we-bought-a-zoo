@@ -1,5 +1,5 @@
 import { setupCounter } from './counter';
-import { createRoom } from './create-room';
+import { joinRoom } from './websockets/join-room';
 
 setupCounter('#counter');
-createRoom();
+joinRoom('abcd');

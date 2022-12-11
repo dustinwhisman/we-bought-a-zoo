@@ -1,10 +1,14 @@
-export const createRoom = (): void => {
+export const joinRoom = (roomCode: string): void => {
+  sessionStorage.removeItem('roomInfo');
   const socket = new WebSocket(import.meta.env.VITE_WS_URL);
 
   socket.addEventListener('open', () => {
     socket.send(
       JSON.stringify({
-        type: 'create',
+        type: 'join',
+        params: {
+          roomCode,
+        },
       }),
     );
   });
@@ -22,7 +26,7 @@ export const createRoom = (): void => {
       if (roomCode) {
         sessionStorage.setItem(
           'roomInfo',
-          JSON.stringify({ roomCode, owner: true }),
+          JSON.stringify({ roomCode, owner: false }),
         );
       }
     } catch (error) {
