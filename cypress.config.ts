@@ -1,8 +1,11 @@
 import { defineConfig } from 'cypress';
+import { config } from 'dotenv';
+
+config({ path: '.env.local' });
 
 export default defineConfig({
   e2e: {
-    baseUrl: 'http://localhost:5173',
+    baseUrl: process.env.BASE_URL,
     setupNodeEvents(on, config) {
       on('task', {
         log(message) {
