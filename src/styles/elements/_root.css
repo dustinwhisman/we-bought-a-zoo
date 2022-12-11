@@ -1,22 +1,26 @@
 :root {
+  --ink: hsl(0deg 0% 10%);
+  --paper: hsl(0deg 0% 95%);
+  --accent: hsl(220deg 56% 45%);
+
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  line-height: 1.5;
   color-scheme: light dark;
-  color: rgb(255 255 255 / 87%);
-  background-color: #242424;
+  color: var(--ink);
+  background-color: var(--paper);
   font-synthesis: none;
   /* stylelint-disable-next-line value-keyword-case */
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #fff;
+    --ink: hsl(0deg 0% 95%);
+    --paper: hsl(0deg 0% 10%);
+    --accent: hsl(220deg 100% 75%);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
   }
 }

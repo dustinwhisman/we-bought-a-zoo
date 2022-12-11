@@ -1,0 +1,5 @@
+main {
+  width: min((100% - 2rem), 50ch);
+  margin-inline: auto;
+  padding-block: 2rem;
+}
