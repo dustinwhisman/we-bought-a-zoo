@@ -10,6 +10,7 @@
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "lint:css": "stylelint '**/*.css'",
+    "lint:js": "eslint . --ext .js,.ts",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -39,6 +40,7 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown",
-    "**/*.css": "stylelint --fix"
+    "**/*.css": "stylelint --fix",
+    "**/*.{js,ts}": "eslint --fix"
   }
 }

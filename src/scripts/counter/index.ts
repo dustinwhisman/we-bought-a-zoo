@@ -21,7 +21,7 @@ export const incrementCount = (count: number): number => count + 1;
 
 export const setupCounter = (selector: string): void => {
   const element: HTMLButtonElement | null = document.querySelector(selector);
-  if (!element) {
+  if (element == null) {
     return;
   }
 
