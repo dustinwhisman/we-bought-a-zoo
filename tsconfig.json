@@ -16,5 +16,11 @@
     "skipLibCheck": true,
     "types": ["vite/client", "cypress", "cypress-axe"]
   },
-  "include": ["src", "cypress", "cypress.config.ts", "vite.config.ts"]
+  "include": [
+    "src",
+    "cypress",
+    "cypress.config.ts",
+    "vite.config.ts",
+    "public/service-worker.js"
+  ]
 }

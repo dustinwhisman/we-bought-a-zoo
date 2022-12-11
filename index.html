@@ -54,5 +54,12 @@
       </div>
     </main>
     <script type="module" src="/src/scripts/main.ts"></script>
+    <script type="module">
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
   </body>
 </html>
