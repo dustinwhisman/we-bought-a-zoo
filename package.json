@@ -9,6 +9,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
+    "test:e2e": "cypress run --e2e",
+    "test:e2e:open": "cypress open --e2e",
     "lint:css": "stylelint '**/*.css'",
     "lint:js": "eslint . --ext .js,.ts",
     "prepare": "husky install"

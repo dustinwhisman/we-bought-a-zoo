@@ -25,3 +25,8 @@ dist-ssr
 
 # testing related files
 coverage
+
+# Cypress files
+cypress/downloads
+cypress/screenshots
+cypress/videos
