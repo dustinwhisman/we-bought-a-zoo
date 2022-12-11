@@ -1,5 +1,5 @@
 import { setupCounter } from './counter';
-import { initializeSocket } from './create-room';
+import { createRoom } from './create-room';
 
 setupCounter('#counter');
-initializeSocket();
+createRoom();
