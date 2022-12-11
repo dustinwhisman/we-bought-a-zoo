@@ -1,6 +1,6 @@
 export const updateElement = (
   element: HTMLButtonElement | null,
-  count: number
+  count: number,
 ): void => {
   if (element == null) {
     return;
@@ -11,8 +11,8 @@ export const updateElement = (
 };
 
 export const getCurrentCount = (element: HTMLButtonElement | null): number => {
-  const count = element?.dataset.count ?? "0";
-  const numericCount = Number.parseInt(count ?? "0");
+  const count = element?.dataset.count ?? '0';
+  const numericCount = Number.parseInt(count ?? '0');
 
   return numericCount;
 };
@@ -25,7 +25,7 @@ export const setupCounter = (selector: string): void => {
     return;
   }
 
-  element.addEventListener("click", () => {
+  element.addEventListener('click', () => {
     const currentCount = getCurrentCount(element);
     const updatedCount = incrementCount(currentCount);
     updateElement(element, updatedCount);
