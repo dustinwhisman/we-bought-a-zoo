@@ -3,12 +3,11 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgb(255 255 255 / 87%);
   background-color: #242424;
-
   font-synthesis: none;
+  /* stylelint-disable-next-line value-keyword-case */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -18,6 +17,6 @@
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #fff;
   }
 }
