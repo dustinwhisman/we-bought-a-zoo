@@ -2,10 +2,8 @@
 
 @import './elements/_a.css';
 @import './elements/_body.css';
-@import './elements/_button.css';
 @import './elements/_h1.css';
 @import './elements/_root.css';
 
 @import './components/_app.css';
-@import './components/_card.css';
 @import './components/_read-the-docs.css';
