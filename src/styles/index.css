@@ -1,8 +1,5 @@
 @import './generic/_reset.css';
 
-@import './elements/_a.css';
-@import './elements/_body.css';
-@import './elements/_h1.css';
 @import './elements/_root.css';
-
-@import './components/_app.css';
+@import './elements/_h1.css';
+@import './elements/_main.css';
