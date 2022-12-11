@@ -1,5 +1,5 @@
 export const initializeSocket = (): void => {
-  const socket = new WebSocket('ws://localhost:8080');
+  const socket = new WebSocket(import.meta.env.VITE_WS_URL);
 
   socket.addEventListener('open', () => {
     socket.send('Hello Server!');
