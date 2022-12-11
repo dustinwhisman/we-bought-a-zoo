@@ -1,4 +1,4 @@
-import '../styles/index.css'
-import { setupCounter } from './counter'
+import "../styles/index.css";
+import { setupCounter } from "./counter";
 
-setupCounter('#counter');
+setupCounter("#counter");
