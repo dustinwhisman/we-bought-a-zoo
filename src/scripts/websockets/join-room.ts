@@ -11,6 +11,20 @@ export const joinRoom = (roomCode: string): void => {
         },
       }),
     );
+
+    document.addEventListener(
+      'leave-room',
+      ({ detail }: CustomEventInit<string>) => {
+        socket.send(
+          JSON.stringify({
+            type: 'leave',
+            params: {
+              roomCode: detail,
+            },
+          }),
+        );
+      },
+    );
   });
 
   socket.addEventListener('message', (event) => {

@@ -8,6 +8,21 @@ export const createRoom = (): void => {
         type: 'create',
       }),
     );
+
+    document.addEventListener(
+      'leave-room',
+      ({ detail }: CustomEventInit<string>) => {
+        console.log({ detail });
+        socket.send(
+          JSON.stringify({
+            type: 'leave',
+            params: {
+              roomCode: detail,
+            },
+          }),
+        );
+      },
+    );
   });
 
   socket.addEventListener('message', (event) => {
