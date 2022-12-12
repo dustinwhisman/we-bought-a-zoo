@@ -1,3 +1,5 @@
+import { createLobby } from '../lobby/create-lobby';
+
 export const createRoom = (): void => {
   sessionStorage.removeItem('roomInfo');
   const socket = new WebSocket(import.meta.env.VITE_WS_URL);
@@ -28,18 +30,23 @@ export const createRoom = (): void => {
   socket.addEventListener('message', (event) => {
     try {
       const obj = JSON.parse(event.data);
+      const { type } = obj;
       const { message, roomCode }: { message: string; roomCode: string } =
         obj.params;
 
-      if (message) {
-        console.log(message);
-      }
+      if (type === 'info') {
+        if (message) {
+          console.log(message);
+        }
 
-      if (roomCode) {
-        sessionStorage.setItem(
-          'roomInfo',
-          JSON.stringify({ roomCode, owner: true }),
-        );
+        if (roomCode) {
+          sessionStorage.setItem(
+            'roomInfo',
+            JSON.stringify({ roomCode, owner: true }),
+          );
+
+          createLobby(roomCode);
+        }
       }
     } catch (error) {
       console.error(error);
