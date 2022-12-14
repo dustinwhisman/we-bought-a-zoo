@@ -70,6 +70,9 @@ export const joinRoom = (roomCode: string, name: string): void => {
         case 'participant left':
           update(obj.params);
           break;
+        case 'error':
+          console.error(obj.params.message ?? { obj });
+          break;
         default:
           throw new Error('Not sure what you expect me to do about that');
       }
