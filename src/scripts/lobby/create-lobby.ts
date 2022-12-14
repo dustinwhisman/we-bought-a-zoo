@@ -15,7 +15,7 @@ export const createLobby = (roomCode: string, hostName: string): void => {
     </p>
     <ul class="cmp-lineup">
       <li>
-        ${hostName} ✨
+        ${hostName}
       </li>
       <li>&nbsp;</li>
       <li>&nbsp;</li>
