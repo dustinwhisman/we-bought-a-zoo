@@ -35,5 +35,10 @@ export const updateLobby = (
         .map(() => `<li>&nbsp;</li>`)
         .join('')}
     </ul>
+    ${
+      isHost && participants.length >= 3
+        ? `<button type="button" data-action="start-game">Start Game</button>`
+        : ''
+    }
   `;
 };
