@@ -20,7 +20,9 @@ document.addEventListener('submit', (event) => {
   }
 
   if (element?.matches('[data-action="join-game"]')) {
-    const roomCode = (element.elements as JoinRoomFormElements).roomCode.value;
+    const roomCode = (
+      element.elements as JoinRoomFormElements
+    ).roomCode.value.toLowerCase();
     const playerName = (element.elements as JoinRoomFormElements).playerName
       .value;
     joinRoom(roomCode, playerName);
