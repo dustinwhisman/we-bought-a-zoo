@@ -67,6 +67,7 @@ export const joinRoom = (roomCode: string, name: string): void => {
           join(obj.params);
           break;
         case 'participant joined':
+        case 'participant left':
           update(obj.params);
           break;
         default:

@@ -66,6 +66,7 @@ export const createRoom = (hostName: string): void => {
           create(obj.params);
           break;
         case 'participant joined':
+        case 'participant left':
           update(obj.params);
           break;
         default:
