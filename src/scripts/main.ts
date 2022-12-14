@@ -1,8 +1,15 @@
 import { createRoom } from './websockets/create-room';
 
-document.addEventListener('click', (event) => {
-  const element = event.target as Element | null;
+interface CreateRoomFormElements extends HTMLFormControlsCollection {
+  hostName: HTMLInputElement;
+}
+
+document.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const element = event.target as HTMLFormElement | null;
   if (element?.matches('[data-action="create-game"]')) {
-    createRoom();
+    const hostName = (element.elements as CreateRoomFormElements).hostName
+      .value;
+    createRoom(hostName);
   }
 });

@@ -1,4 +1,4 @@
-export const createLobby = (roomCode: string): void => {
+export const createLobby = (roomCode: string, hostName: string): void => {
   const gameContentElement = document.querySelector('#gameContent');
   if (!gameContentElement) {
     return;
@@ -11,7 +11,19 @@ export const createLobby = (roomCode: string): void => {
       let the bidding begin!
     </p>
     <p>
-      0 of 7 spots filled
+      1 of 8 spots filled
     </p>
+    <ul class="cmp-lineup">
+      <li>
+        ${hostName} ✨
+      </li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+    </ul>
   `;
 };

@@ -41,7 +41,13 @@
           exhibit, and the player with the (subjectively) best zoo wins the
           game!
         </p>
-        <button type="button" data-action="create-game">Create Game</button>
+        <form class="cmp-stack cmp-entry-form" data-action="create-game">
+          <div>
+            <label for="hostName">Name</label>
+            <input id="hostName" type="text" name="host-name" />
+          </div>
+          <button type="submit">Create Game</button>
+        </form>
         <form class="cmp-stack cmp-entry-form" data-action="join-game">
           <div>
             <label for="roomCode">Room Code</label>
