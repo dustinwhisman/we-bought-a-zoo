@@ -10,6 +10,16 @@ interface JoinRoomFormElements extends HTMLFormControlsCollection {
   playerName: HTMLInputElement;
 }
 
+const roomInfo = sessionStorage.getItem('roomInfo');
+if (roomInfo != null) {
+  const { roomCode, name, owner } = JSON.parse(roomInfo);
+  if (owner) {
+    createRoom(name, roomCode);
+  } else {
+    joinRoom(roomCode, name, false);
+  }
+}
+
 document.addEventListener('submit', (event) => {
   event.preventDefault();
   const element = event.target as HTMLFormElement | null;
@@ -25,6 +35,6 @@ document.addEventListener('submit', (event) => {
     ).roomCode.value.toLowerCase();
     const playerName = (element.elements as JoinRoomFormElements).playerName
       .value;
-    joinRoom(roomCode, playerName);
+    joinRoom(roomCode, playerName, true);
   }
 });

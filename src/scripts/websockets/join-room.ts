@@ -28,8 +28,14 @@ const update = (params: { roomCode: string; participants: string[] }): void => {
   updateLobby(roomCode, participants, false);
 };
 
-export const joinRoom = (roomCode: string, name: string): void => {
-  sessionStorage.removeItem('roomInfo');
+export const joinRoom = (
+  roomCode: string,
+  name: string,
+  isNewConnection: boolean = false,
+): void => {
+  if (isNewConnection) {
+    sessionStorage.removeItem('roomInfo');
+  }
   const socket = new WebSocket(import.meta.env.VITE_WS_URL);
 
   socket.addEventListener('open', () => {

@@ -4,9 +4,9 @@ import { updateLobby } from '../lobby/update-lobby';
 const create = (params: {
   message: string;
   roomCode: string;
-  hostName: string;
+  name: string;
 }): void => {
-  const { message, roomCode, hostName } = params;
+  const { message, roomCode, name } = params;
 
   if (message) {
     console.log(message);
@@ -15,10 +15,10 @@ const create = (params: {
   if (roomCode) {
     sessionStorage.setItem(
       'roomInfo',
-      JSON.stringify({ roomCode, hostName, owner: true }),
+      JSON.stringify({ roomCode, name, owner: true }),
     );
 
-    createLobby(roomCode, hostName);
+    createLobby(roomCode, name);
   }
 };
 
@@ -27,19 +27,33 @@ const update = (params: { roomCode: string; participants: string[] }): void => {
   updateLobby(roomCode, participants, true);
 };
 
-export const createRoom = (hostName: string): void => {
-  sessionStorage.removeItem('roomInfo');
+export const createRoom = (hostName: string, roomCode?: string): void => {
+  if (!roomCode) {
+    sessionStorage.removeItem('roomInfo');
+  }
   const socket = new WebSocket(import.meta.env.VITE_WS_URL);
 
   socket.addEventListener('open', () => {
-    socket.send(
-      JSON.stringify({
-        type: 'create',
-        params: {
-          hostName,
-        },
-      }),
-    );
+    if (roomCode) {
+      socket.send(
+        JSON.stringify({
+          type: 'join',
+          params: {
+            roomCode,
+            name: hostName,
+          },
+        }),
+      );
+    } else {
+      socket.send(
+        JSON.stringify({
+          type: 'create',
+          params: {
+            name: hostName,
+          },
+        }),
+      );
+    }
 
     document.addEventListener(
       'leave-room',
