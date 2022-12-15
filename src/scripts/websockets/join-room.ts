@@ -1,3 +1,7 @@
+import {
+  setupPlayerGameEventListeners,
+  showWaitingScreen,
+} from '../game/player';
 import { joinLobby } from '../lobby/join-lobby';
 import { updateLobby } from '../lobby/update-lobby';
 
@@ -62,6 +66,8 @@ export const joinRoom = (
         );
       },
     );
+
+    setupPlayerGameEventListeners(socket);
   });
 
   socket.addEventListener('message', (event) => {
@@ -75,6 +81,9 @@ export const joinRoom = (
         case 'participant joined':
         case 'participant left':
           update(obj.params);
+          break;
+        case 'game started':
+          showWaitingScreen();
           break;
         case 'error':
           console.error(obj.params.message ?? { obj });

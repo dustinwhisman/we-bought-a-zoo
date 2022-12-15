@@ -7,6 +7,7 @@
 @import './elements/_label.css';
 @import './elements/_main.css';
 
+@import './components/_animal-parade.css';
 @import './components/_entry-form.css';
 @import './components/_lineup.css';
 @import './components/_stack.css';
