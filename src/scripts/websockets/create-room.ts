@@ -1,3 +1,7 @@
+import {
+  setupHostGameEventListeners,
+  showAnimalSelectionScreen,
+} from '../game/host';
 import { createLobby } from '../lobby/create-lobby';
 import { updateLobby } from '../lobby/update-lobby';
 
@@ -69,6 +73,8 @@ export const createRoom = (hostName: string, roomCode?: string): void => {
         );
       },
     );
+
+    setupHostGameEventListeners(socket);
   });
 
   socket.addEventListener('message', (event) => {
@@ -82,6 +88,9 @@ export const createRoom = (hostName: string, roomCode?: string): void => {
         case 'participant joined':
         case 'participant left':
           update(obj.params);
+          break;
+        case 'game started':
+          showAnimalSelectionScreen();
           break;
         case 'error':
           console.error(obj.params.message ?? { obj });
