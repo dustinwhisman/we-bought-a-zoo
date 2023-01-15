@@ -12,6 +12,8 @@ interface JoinRoomFormElements extends HTMLFormControlsCollection {
 }
 
 let currentState: stateObj = { state: 'start', value: null };
+let name: string;
+let isHost = false;
 
 const setState: stateSetter = (nextState) => {
   currentState = nextState;
@@ -25,7 +27,12 @@ const renderView: renderer = (state, data) => {
 const handle = (event: validEvents, data: any): void => {
   const state = states[currentState.state];
   if (state?.[event]) {
-    state[event]?.(data, currentState.state, renderView, setState);
+    state[event]?.(
+      { ...data, name, isHost },
+      currentState.state,
+      renderView,
+      setState,
+    );
     return;
   }
 
@@ -47,11 +54,13 @@ document.addEventListener('submit', (event) => {
   if (element?.matches('[data-action="create-game"]')) {
     const hostName = (element.elements as CreateRoomFormElements).hostName
       .value;
+    name = hostName;
+    isHost = true;
     ws.send(
       JSON.stringify({
         type: 'create',
         params: {
-          name: hostName,
+          name,
         },
       }),
     );
@@ -63,12 +72,13 @@ document.addEventListener('submit', (event) => {
     ).roomCode.value.toLowerCase();
     const playerName = (element.elements as JoinRoomFormElements).playerName
       .value;
+    name = playerName;
     ws.send(
       JSON.stringify({
         type: 'join',
         params: {
           roomCode,
-          name: playerName,
+          name,
         },
       }),
     );

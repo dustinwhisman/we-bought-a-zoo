@@ -4,13 +4,19 @@ export const renderLobby = (data: any): void => {
     return;
   }
 
-  const { roomCode, participants } = data;
+  const { roomCode, participants, isHost } = data;
 
   gameContentElement.innerHTML = `
     <h2>Room Code: ${roomCode.toUpperCase()}</h2>
-    <p>
+    ${
+      isHost
+        ? `<p>
       Once everybody is in, start the game to let the bidding begin!
-    </p>
+    </p>`
+        : `<p>
+      Hang tight, the host will start the auction once everyone is in!
+    </p>`
+    }
     <p>
       ${participants.length} of 8 spots filled
     </p>
@@ -26,6 +32,10 @@ export const renderLobby = (data: any): void => {
         .map(() => `<li>&nbsp;</li>`)
         .join('')}
     </ul>
-    <button type="button" data-action="start-game">Start Game</button>
+    ${
+      isHost && participants.length >= 2
+        ? '<button type="button" data-action="start-game">Start Game</button>'
+        : ''
+    }
   `;
 };
