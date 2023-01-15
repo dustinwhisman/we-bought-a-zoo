@@ -1,17 +1,29 @@
-type validStates =
+export interface stateObj {
+  state: validStates;
+  value: any;
+}
+export type validStates =
   | 'start'
   | 'lobby'
   | 'secretAuction'
   | 'auctionResults'
   | 'finalResults';
-interface stateObj {
-  state: validStates;
-  value: any;
-}
-type renderer = (state: validStates, data: any) => void;
-type stateSetter = ({ state, value }: stateObj) => stateObj;
+export type validEvents = 'create' | 'join' | 'start' | 'bid' | 'next' | 'end';
+export type renderer = (state: validStates, data: any) => void;
+export type stateSetter = ({ state, value }: stateObj) => stateObj;
+export type eventHandler = (
+  data: any,
+  state: validStates,
+  renderView: renderer,
+  setState: stateSetter,
+) => stateObj;
+export type States = {
+  [key in validStates]: {
+    [key in validEvents]?: eventHandler;
+  };
+};
 
-export const states = {
+export const states: States = {
   start: {
     create: (
       data: any,
