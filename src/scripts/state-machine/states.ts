@@ -32,7 +32,7 @@ export const states: States = {
       setState: stateSetter,
     ) => {
       console.log('Creating lobby', data);
-      renderView(state, data);
+      renderView('lobby', data);
       return setState({ state: 'lobby', value: data });
     },
     join: (
@@ -42,7 +42,7 @@ export const states: States = {
       setState: stateSetter,
     ) => {
       console.log('Joining lobby', data);
-      renderView(state, data);
+      renderView('lobby', data);
       return setState({ state: 'lobby', value: data });
     },
   },
@@ -64,7 +64,7 @@ export const states: States = {
       setState: stateSetter,
     ) => {
       console.log('Starting auction', data);
-      renderView(state, data);
+      renderView('secretAuction', data);
       return setState({ state: 'secretAuction', value: data });
     },
   },
@@ -86,7 +86,7 @@ export const states: States = {
       setState: stateSetter,
     ) => {
       console.log('Auction ended', data);
-      renderView(state, data);
+      renderView('auctionResults', data);
       return setState({ state: 'auctionResults', value: data });
     },
   },
@@ -98,7 +98,7 @@ export const states: States = {
       setState: stateSetter,
     ) => {
       console.log('Starting next auction', data);
-      renderView(state, data);
+      renderView('secretAuction', data);
       return setState({ state: 'secretAuction', value: data });
     },
     end: (
@@ -108,7 +108,7 @@ export const states: States = {
       setState: stateSetter,
     ) => {
       console.log('Finishing auction', data);
-      renderView(state, data);
+      renderView('finalResults', data);
       return setState({ state: 'finalResults', value: data });
     },
   },
@@ -120,7 +120,7 @@ export const states: States = {
       setState: stateSetter,
     ) => {
       console.log('Ending game', data);
-      renderView(state, data);
+      renderView('start', data);
       return setState({ state: 'start', value: null });
     },
   },
