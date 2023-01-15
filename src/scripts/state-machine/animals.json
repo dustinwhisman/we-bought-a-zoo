@@ -1,0 +1,77 @@
+[
+  {
+    "animal": "Silverback Gorilla",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Dolphin",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Peacock",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Camel",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Honey Badger",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Fennec Fox",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "African Penguin",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Gray Wolf",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Polar Bear",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Lion",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Bonobos",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Elephant",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Red Panda",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Naked Mole Rat",
+    "auctioned": false,
+    "winner": null
+  },
+  {
+    "animal": "Hippo",
+    "auctioned": false,
+    "winner": null
+  }
+]
