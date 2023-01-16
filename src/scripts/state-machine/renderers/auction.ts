@@ -29,5 +29,8 @@ export const renderAuction = (data: any): void => {
       </div>
       <button type="submit">Submit Bid</button>
     </form>
+    <p>
+      Bidding ends in <span data-timer>60 seconds</span>
+    </p>
   `;
 };

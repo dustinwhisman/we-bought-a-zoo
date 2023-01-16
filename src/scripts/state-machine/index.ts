@@ -2,6 +2,7 @@ import { states } from './states';
 import { renderers } from './renderers';
 import animalList from './animals.json';
 import type { stateObj, validEvents, stateSetter, renderer } from './states';
+import { countdown } from './countdown';
 
 interface CreateRoomFormElements extends HTMLFormControlsCollection {
   hostName: HTMLInputElement;
@@ -62,6 +63,10 @@ const handle = (event: validEvents, data: any): void => {
       renderView,
       setState,
     );
+
+    if (event === 'start' || event === 'next') {
+      countdown(60);
+    }
     return;
   }
 
