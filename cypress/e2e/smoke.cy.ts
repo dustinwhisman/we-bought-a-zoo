@@ -1,5 +1,5 @@
 import 'cypress-each';
-import axe from 'axe-core';
+import type axe from 'axe-core';
 
 const pages = ['/'];
 
