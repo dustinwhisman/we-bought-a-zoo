@@ -1,5 +1,7 @@
+/* generic styles */
 @import './generic/_reset.css';
 
+/* element styles */
 @import './elements/_root.css';
 @import './elements/_button.css';
 @import './elements/_h1.css';
@@ -7,6 +9,7 @@
 @import './elements/_label.css';
 @import './elements/_main.css';
 
+/* component styles */
 @import './components/_animal-parade.css';
 @import './components/_entry-form.css';
 @import './components/_lineup.css';
